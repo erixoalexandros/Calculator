@@ -1,0 +1,260 @@
+/* MAIN ELEMENTS */
+
+body {
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(25, 21, 22, 0.9)), to(rgba(25, 21, 22, 0.9))), url('background.jpg');
+    background: -webkit-linear-gradient(rgba(25, 21, 22, 0.9), rgba(25, 21, 22, 0.9)), url('background.jpg');
+    background: -o-linear-gradient(rgba(25, 21, 22, 0.9), rgba(25, 21, 22, 0.9)), url('background.jpg');
+    background: linear-gradient(rgba(25, 21, 22, 0.9), rgba(25, 21, 22, 0.9)), url('background.jpg');
+    background-size: cover;
+    height: 100vh;
+}
+
+#container {
+    background: -webkit-gradient(linear, left top, left bottom, from(#70d17b), color-stop(#64cd6f), color-stop(#58c963), color-stop(#4ac557), to(#3bc14a));
+    background: -webkit-linear-gradient(top, #70d17b, #64cd6f, #58c963, #4ac557, #3bc14a);
+    background: -o-linear-gradient(top, #70d17b, #64cd6f, #58c963, #4ac557, #3bc14a);
+    background: linear-gradient(to bottom, #70d17b, #64cd6f, #58c963, #4ac557, #3bc14a);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Ubuntu Mono', monospace;
+    height: 600px;
+    margin: 1.5rem;
+    width: 400px;
+}
+
+
+/* SHARED ATTRIBUTES */
+
+body,
+#display,
+.btn {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+body,
+.btn {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+#container,
+#display,
+.btn {
+    border-radius: 10px;
+    -webkit-box-shadow: 0 1px 1px #191516;
+    box-shadow: 0 1px 1px #191516;
+}
+
+#container,
+#display {
+    padding: 1.5rem;
+}
+
+#container,
+#board {
+    display: -ms-grid;
+    display: grid;
+}
+
+#display,
+.btn,
+.btn:active {
+    border: 1px solid #191516;
+}
+
+.btn,
+#del {
+    color: #171717;
+}
+
+.btn:active,
+#clear {
+    color: #C9DAEA;
+}
+
+
+/* DISPLAY */
+
+#display {
+    background: -webkit-gradient(linear, left top, left bottom, from(#e2e2e2), color-stop(50%, #dbdbdb), color-stop(51%, #d1d1d1), to(#fefefe));
+    background: -webkit-linear-gradient(top, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%);
+    background: -o-linear-gradient(top, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%);
+    background: linear-gradient(to bottom, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%);
+    color: #191516;
+    font-size: 2.5rem;
+    height: 50px;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+    overflow: auto;
+}
+
+
+/* BOARD */
+
+#board {
+    grid-gap: 1rem;
+    -ms-grid-rows: (1fr)[5];
+    -ms-grid-columns: (1fr)[4];
+    grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+    grid-template-areas: /* GRID DISTRIBUTION */
+    "clear del division multiplication" "seven eight nine subtraction" "four five six sum" "one two three equal" "zero zero comma equal";
+    height: 425px;
+}
+
+
+/* BUTTONS STYLE */
+
+.btn {
+    background-color: #F4EC87;
+    font-weight: 500;
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.btn:hover {
+    background-color: #C6A15B;
+    -webkit-box-shadow: 0 1px 4px #191516;
+    box-shadow: 0 1px 4px #191516;
+    cursor: pointer;
+    font-size: 2.5rem;
+}
+
+.btn:active {
+    background-color: #917643;
+    -webkit-box-shadow: inset 0 1px 4px #191516;
+    box-shadow: inset 0 1px 4px #191516;
+}
+
+
+/*Shared font-size attribute after its elements rules declaration*/
+
+.btn,
+.btn:active {
+    font-size: 2.25rem;
+}
+
+
+/* GRID AREAS (BUTTONS) */
+
+#clear {
+    background-color: #D1462F;
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: clear;
+}
+
+#division {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+    grid-area: division;
+}
+
+#multiplication {
+    -ms-grid-row: 1;
+    -ms-grid-column: 4;
+    grid-area: multiplication;
+}
+
+#subtraction {
+    -ms-grid-row: 2;
+    -ms-grid-column: 4;
+    grid-area: subtraction;
+}
+
+#sum {
+    -ms-grid-row: 3;
+    -ms-grid-column: 4;
+    grid-area: sum;
+}
+
+#equal {
+    -ms-grid-row: 4;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 4;
+    grid-area: equal;
+}
+
+#comma {
+    -ms-grid-row: 5;
+    -ms-grid-column: 3;
+    grid-area: comma;
+}
+
+#del {
+    background-color: #87d0f2;
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: del;
+}
+
+#zero {
+    -ms-grid-row: 5;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: zero;
+}
+
+#one {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    grid-area: one;
+}
+
+#two {
+    -ms-grid-row: 4;
+    -ms-grid-column: 2;
+    grid-area: two;
+}
+
+#three {
+    -ms-grid-row: 4;
+    -ms-grid-column: 3;
+    grid-area: three;
+}
+
+#four {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    grid-area: four;
+}
+
+#five {
+    -ms-grid-row: 3;
+    -ms-grid-column: 2;
+    grid-area: five;
+}
+
+#six {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
+    grid-area: six;
+}
+
+#seven {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: seven;
+}
+
+#eight {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+    grid-area: eight;
+}
+
+#nine {
+    -ms-grid-row: 2;
+    -ms-grid-column: 3;
+    grid-area: nine;
+}
